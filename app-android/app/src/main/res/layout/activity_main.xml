@@ -1,0 +1,600 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Tres paginas (Inicio, Ajustes, Registro) y una barra de navegacion abajo -->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/raiz"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/fondo"
+    android:orientation="vertical">
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+
+        <!-- ======================= INICIO ======================= -->
+        <ScrollView android:id="@+id/pagInicio" style="@style/Pagina">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:paddingStart="18dp"
+                android:paddingEnd="18dp"
+                android:paddingTop="18dp"
+                android:paddingBottom="24dp">
+
+                <!-- Encabezado -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Hola 👋"
+                            android:textColor="@color/texto_suave"
+                            android:textSize="14sp" />
+                        <TextView style="@style/TituloPagina" android:text="Traductor de entorno para ciegos" />
+                    </LinearLayout>
+                    <TextView
+                        android:id="@+id/txtChip"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/fondo_chip"
+                        android:paddingStart="12dp"
+                        android:paddingEnd="12dp"
+                        android:paddingTop="6dp"
+                        android:paddingBottom="6dp"
+                        android:textSize="13sp"
+                        android:textStyle="bold" />
+                </LinearLayout>
+
+                <!-- Tarjeta principal -->
+                <LinearLayout
+                    android:id="@+id/tarjetaPrincipal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="18dp"
+                    android:background="@drawable/fondo_hero"
+                    android:orientation="vertical"
+                    android:padding="20dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:alpha="0.8"
+                        android:text="Servidor"
+                        android:textColor="#FFFFFF"
+                        android:textSize="13sp" />
+                    <TextView
+                        android:id="@+id/txtEstado"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="#FFFFFF"
+                        android:textSize="28sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="14dp"
+                        android:alpha="0.8"
+                        android:text="Direccion del celular (para el ESP32)"
+                        android:textColor="#FFFFFF"
+                        android:textSize="13sp" />
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal">
+                        <TextView
+                            android:id="@+id/txtIp"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:fontFamily="monospace"
+                            android:textColor="#FFFFFF"
+                            android:textIsSelectable="true"
+                            android:textSize="20sp"
+                            android:textStyle="bold" />
+                        <Button
+                            android:id="@+id/btnCopiarIp"
+                            style="@style/BotonChico"
+                            android:layout_width="wrap_content"
+                            android:background="@drawable/fondo_mini"
+                            android:textColor="#FFFFFF"
+                            android:text="Copiar" />
+                    </LinearLayout>
+
+                    <!-- ESP32 y Gemini -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="14dp"
+                        android:orientation="horizontal">
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginEnd="6dp"
+                            android:layout_weight="1"
+                            android:background="@drawable/fondo_mini"
+                            android:orientation="vertical"
+                            android:padding="12dp">
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:alpha="0.8"
+                                android:text="Dispositivo (ESP32)"
+                                android:textColor="#FFFFFF"
+                                android:textSize="12sp" />
+                            <TextView
+                                android:id="@+id/txtEsp"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="2dp"
+                                android:textColor="#FFFFFF"
+                                android:textSize="14sp"
+                                android:textStyle="bold" />
+                        </LinearLayout>
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="6dp"
+                            android:layout_weight="1"
+                            android:background="@drawable/fondo_mini"
+                            android:orientation="vertical"
+                            android:padding="12dp">
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:alpha="0.8"
+                                android:text="Gemini"
+                                android:textColor="#FFFFFF"
+                                android:textSize="12sp" />
+                            <TextView
+                                android:id="@+id/txtGemini"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="2dp"
+                                android:textColor="#FFFFFF"
+                                android:textSize="14sp"
+                                android:textStyle="bold" />
+                        </LinearLayout>
+                    </LinearLayout>
+
+                    <Button
+                        android:id="@+id/btnIniciar"
+                        style="@style/BotonBase"
+                        android:layout_width="match_parent"
+                        android:layout_marginTop="16dp"
+                        android:background="@drawable/boton_blanco"
+                        android:textColor="#15161C" />
+                </LinearLayout>
+
+                <!-- Aviso de bateria (solo si hace falta) -->
+                <LinearLayout
+                    android:id="@+id/avisoBateria"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="14dp"
+                    android:background="@drawable/fondo_aviso"
+                    android:orientation="vertical"
+                    android:padding="16dp">
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="⚠ Con la pantalla apagada el celular puede cortar la conexion con el dispositivo."
+                        android:textColor="@color/amarillo"
+                        android:textSize="14sp" />
+                    <Button
+                        android:id="@+id/btnBateria"
+                        style="@style/BotonChico"
+                        android:layout_width="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:text="Permitir" />
+                </LinearLayout>
+
+                <!-- Acciones rapidas -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="14dp"
+                    android:orientation="horizontal">
+                    <Button
+                        android:id="@+id/btnOlvidar"
+                        style="@style/BotonPrimario"
+                        android:layout_width="0dp"
+                        android:layout_marginEnd="6dp"
+                        android:layout_weight="1"
+                        android:text="Olvidar charla" />
+                    <Button
+                        android:id="@+id/btnSalir"
+                        style="@style/BotonSecundario"
+                        android:layout_width="0dp"
+                        android:layout_marginStart="6dp"
+                        android:layout_weight="1"
+                        android:text="Apagar y salir" />
+                </LinearLayout>
+
+                <!-- Ultima consulta -->
+                <LinearLayout style="@style/Tarjeta">
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal">
+                        <TextView
+                            style="@style/Titulo"
+                            android:layout_width="0dp"
+                            android:layout_weight="1"
+                            android:text="Ultima consulta" />
+                        <TextView
+                            android:id="@+id/txtTipoConsulta"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/fondo_chip"
+                            android:paddingStart="10dp"
+                            android:paddingEnd="10dp"
+                            android:paddingTop="4dp"
+                            android:paddingBottom="4dp"
+                            android:textColor="@color/texto_suave"
+                            android:textSize="12sp"
+                            android:visibility="gone" />
+                    </LinearLayout>
+                    <ImageView
+                        android:id="@+id/imgFoto"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:adjustViewBounds="true"
+                        android:background="@drawable/fondo_foto"
+                        android:contentDescription="Ultima foto que vio Gemini"
+                        android:maxHeight="320dp"
+                        android:scaleType="fitCenter"
+                        android:visibility="gone" />
+                    <TextView
+                        android:id="@+id/txtPregunta"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:textColor="@color/texto_suave"
+                        android:textIsSelectable="true"
+                        android:textSize="14sp"
+                        android:visibility="gone" />
+                    <TextView
+                        android:id="@+id/txtConsulta"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:lineSpacingExtra="3dp"
+                        android:text="Todavia no hubo consultas. Toca un boton del dispositivo."
+                        android:textColor="@color/texto"
+                        android:textIsSelectable="true"
+                        android:textSize="16sp" />
+                    <TextView
+                        android:id="@+id/txtTiempos"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:textColor="@color/texto_suave"
+                        android:textSize="12sp"
+                        android:visibility="gone" />
+                </LinearLayout>
+            </LinearLayout>
+        </ScrollView>
+
+        <!-- ======================= AJUSTES ======================= -->
+        <ScrollView android:id="@+id/pagAjustes" style="@style/Pagina" android:visibility="gone">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:paddingStart="18dp"
+                android:paddingEnd="18dp"
+                android:paddingTop="18dp"
+                android:paddingBottom="24dp">
+
+                <TextView style="@style/TituloPagina" android:text="Ajustes" />
+
+                <!-- Clave -->
+                <LinearLayout style="@style/Tarjeta">
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal">
+                        <TextView
+                            style="@style/Titulo"
+                            android:layout_width="0dp"
+                            android:layout_weight="1"
+                            android:text="Clave de Gemini" />
+                        <TextView
+                            android:id="@+id/txtClaveEstado"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textSize="13sp"
+                            android:textStyle="bold" />
+                    </LinearLayout>
+                    <EditText
+                        android:id="@+id/edtClave"
+                        style="@style/Campo"
+                        android:layout_marginTop="8dp"
+                        android:fontFamily="monospace"
+                        android:hint="Pega aca tu clave"
+                        android:inputType="textPassword" />
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:orientation="horizontal">
+                        <Button
+                            android:id="@+id/btnVerClave"
+                            style="@style/BotonSecundario"
+                            android:layout_width="0dp"
+                            android:layout_marginEnd="6dp"
+                            android:layout_weight="1"
+                            android:text="Mostrar" />
+                        <Button
+                            android:id="@+id/btnGuardarClave"
+                            style="@style/BotonPrimario"
+                            android:layout_width="0dp"
+                            android:layout_marginStart="6dp"
+                            android:layout_weight="1"
+                            android:text="Guardar clave" />
+                    </LinearLayout>
+                </LinearLayout>
+
+                <!-- Voz -->
+                <LinearLayout style="@style/Tarjeta">
+                    <TextView style="@style/Titulo" android:text="Voz y parlante" />
+                    <TextView style="@style/Etiqueta" android:text="Motor de voz" />
+                    <Spinner android:id="@+id/spnMotor" style="@style/Selector" />
+                    <TextView style="@style/Etiqueta" android:text="Voz (preferi las que dicen sin internet)" />
+                    <Spinner android:id="@+id/spnVoz" style="@style/Selector" />
+                    <TextView android:id="@+id/lblVolumen" style="@style/Etiqueta" />
+                    <SeekBar
+                        android:id="@+id/skVolumen"
+                        android:layout_width="match_parent"
+                        android:layout_height="40dp"
+                        android:max="45" />
+                    <TextView android:id="@+id/lblVelocidad" style="@style/Etiqueta" />
+                    <SeekBar
+                        android:id="@+id/skVelocidad"
+                        android:layout_width="match_parent"
+                        android:layout_height="40dp"
+                        android:max="10" />
+                    <Button
+                        android:id="@+id/btnProbarVoz"
+                        style="@style/BotonSecundario"
+                        android:layout_width="match_parent"
+                        android:layout_marginTop="10dp"
+                        android:text="▶  Escuchar voz en el celular" />
+                </LinearLayout>
+
+                <!-- Camara -->
+                <LinearLayout style="@style/Tarjeta">
+                    <TextView style="@style/Titulo" android:text="Camara" />
+                    <TextView style="@style/Etiqueta" android:text="Girar la foto" />
+                    <Spinner android:id="@+id/spnRotacion" style="@style/Selector" />
+                    <Switch
+                        android:id="@+id/swMejorar"
+                        style="@style/Interruptor"
+                        android:layout_marginTop="8dp"
+                        android:text="Mejorar la foto (contraste, sombras, nitidez)" />
+                </LinearLayout>
+
+                <!-- Modo conversacion (Gemini Live) -->
+                <LinearLayout style="@style/Tarjeta">
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal">
+                        <TextView
+                            style="@style/Titulo"
+                            android:layout_width="0dp"
+                            android:layout_weight="1"
+                            android:text="Modo conversacion" />
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/fondo_chip"
+                            android:paddingStart="10dp"
+                            android:paddingEnd="10dp"
+                            android:paddingTop="4dp"
+                            android:paddingBottom="4dp"
+                            android:text="Experimental"
+                            android:textColor="@color/amarillo"
+                            android:textSize="12sp" />
+                    </LinearLayout>
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="4dp"
+                        android:text="Gemini Live: responde mientras genera, con su propia voz, y se puede interrumpir. Necesita el firmware v11 en el dispositivo."
+                        android:textColor="@color/texto_suave"
+                        android:textSize="13sp" />
+                    <Switch
+                        android:id="@+id/swLive"
+                        style="@style/Interruptor"
+                        android:layout_marginTop="6dp"
+                        android:text="Usar modo conversacion" />
+                    <TextView style="@style/Etiqueta" android:text="Microfono" />
+                    <Spinner android:id="@+id/spnMicLive" style="@style/Selector" />
+                    <TextView style="@style/Etiqueta" android:text="Voz de Gemini" />
+                    <Spinner android:id="@+id/spnVozLive" style="@style/Selector" />
+                    <TextView style="@style/Etiqueta" android:text="Modelo Live" />
+                    <EditText android:id="@+id/edtModeloLive" style="@style/Campo" android:inputType="text" />
+                </LinearLayout>
+
+                <!-- Conversacion -->
+                <LinearLayout style="@style/Tarjeta">
+                    <TextView style="@style/Titulo" android:text="Conversacion" />
+                    <Switch
+                        android:id="@+id/swMemoria"
+                        style="@style/Interruptor"
+                        android:text="Recordar toda la conversacion (hasta cerrar la app o reiniciar el dispositivo)" />
+                    <Switch
+                        android:id="@+id/swSaludoIa"
+                        style="@style/Interruptor"
+                        android:text="Saludo inventado por la IA (tarda mas al encender)" />
+                </LinearLayout>
+
+                <!-- Llamadas -->
+                <LinearLayout style="@style/Tarjeta">
+                    <TextView style="@style/Titulo" android:text="Llamadas" />
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="4dp"
+                        android:text="Llamar a un contacto por voz (siempre pide confirmacion) y atender o rechazar las llamadas que entran. Un toque del boton de la camara mientras suena la rechaza. La charla va por el altavoz del celular."
+                        android:textColor="@color/texto_suave"
+                        android:textSize="13sp" />
+                    <Switch
+                        android:id="@+id/swLlamadas"
+                        style="@style/Interruptor"
+                        android:layout_marginTop="6dp"
+                        android:text="Llamadas por voz" />
+                    <TextView
+                        android:id="@+id/txtPermisosLlamadas"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="6dp"
+                        android:textSize="13sp" />
+                    <Button
+                        android:id="@+id/btnPermisosLlamadas"
+                        style="@style/BotonSecundario"
+                        android:layout_width="match_parent"
+                        android:layout_marginTop="10dp"
+                        android:text="Permitir llamadas" />
+                </LinearLayout>
+
+                <!-- Ubicacion -->
+                <LinearLayout style="@style/Tarjeta">
+                    <TextView style="@style/Titulo" android:text="Ubicacion" />
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="4dp"
+                        android:text="Preguntale donde estas (calle, altura y entre que calles), que hay cerca (escuela, farmacia, parada...) y como llegar caminando. La ubicacion solo sale del celular cuando le preguntas."
+                        android:textColor="@color/texto_suave"
+                        android:textSize="13sp" />
+                    <Switch
+                        android:id="@+id/swUbicacion"
+                        style="@style/Interruptor"
+                        android:layout_marginTop="6dp"
+                        android:text="Ubicacion por voz" />
+                    <TextView
+                        android:id="@+id/txtPermisosUbicacion"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="6dp"
+                        android:textSize="13sp" />
+                    <Button
+                        android:id="@+id/btnPermisosUbicacion"
+                        style="@style/BotonSecundario"
+                        android:layout_width="match_parent"
+                        android:layout_marginTop="10dp"
+                        android:text="Permitir ubicacion" />
+                </LinearLayout>
+
+                <!-- Avanzado -->
+                <LinearLayout style="@style/Tarjeta">
+                    <TextView style="@style/Titulo" android:text="Avanzado" />
+                    <TextView style="@style/Etiqueta" android:text="Modelo de Gemini" />
+                    <EditText android:id="@+id/edtModelo" style="@style/Campo" android:inputType="text" />
+                    <TextView style="@style/Etiqueta" android:text="Puerto (igual a SERVIDOR_PORT del ESP32)" />
+                    <EditText android:id="@+id/edtPuerto" style="@style/Campo" android:inputType="number" />
+                </LinearLayout>
+
+                <Button
+                    android:id="@+id/btnGuardar"
+                    style="@style/BotonPrimario"
+                    android:layout_width="match_parent"
+                    android:layout_marginTop="18dp"
+                    android:text="Guardar ajustes" />
+            </LinearLayout>
+        </ScrollView>
+
+        <!-- ======================= REGISTRO ======================= -->
+        <ScrollView android:id="@+id/pagRegistro" style="@style/Pagina" android:visibility="gone">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:paddingStart="18dp"
+                android:paddingEnd="18dp"
+                android:paddingTop="18dp"
+                android:paddingBottom="24dp">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+                    <TextView
+                        style="@style/TituloPagina"
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:text="Registro" />
+                    <Button
+                        android:id="@+id/btnCopiar"
+                        style="@style/BotonChico"
+                        android:layout_width="wrap_content"
+                        android:layout_marginEnd="8dp"
+                        android:text="Copiar" />
+                    <Button
+                        android:id="@+id/btnLimpiar"
+                        style="@style/BotonChico"
+                        android:layout_width="wrap_content"
+                        android:text="Borrar" />
+                </LinearLayout>
+                <LinearLayout style="@style/Tarjeta">
+                    <TextView
+                        android:id="@+id/txtRegistro"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="monospace"
+                        android:text="(vacio)"
+                        android:textColor="@color/texto_suave"
+                        android:textIsSelectable="true"
+                        android:textSize="11sp" />
+                </LinearLayout>
+            </LinearLayout>
+        </ScrollView>
+    </FrameLayout>
+
+    <!-- ======================= BARRA DE ABAJO ======================= -->
+    <LinearLayout
+        android:id="@+id/barraNav"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/fondo_nav"
+        android:orientation="horizontal"
+        android:paddingTop="8dp"
+        android:paddingBottom="8dp">
+        <TextView
+            android:id="@+id/navInicio"
+            style="@style/ItemNav"
+            android:layout_height="56dp"
+            android:drawableTop="@drawable/ic_inicio"
+            android:text="Inicio" />
+        <TextView
+            android:id="@+id/navAjustes"
+            style="@style/ItemNav"
+            android:layout_height="56dp"
+            android:drawableTop="@drawable/ic_ajustes"
+            android:text="Ajustes" />
+        <TextView
+            android:id="@+id/navRegistro"
+            style="@style/ItemNav"
+            android:layout_height="56dp"
+            android:drawableTop="@drawable/ic_registro"
+            android:text="Registro" />
+    </LinearLayout>
+</LinearLayout>

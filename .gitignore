@@ -1,0 +1,35 @@
+# --- Secretos: nunca subir ---
+.env
+*.env
+!.env.ejemplo
+*.keystore
+*.jks
+secrets.h
+claves.txt
+
+# --- Android Studio / Gradle ---
+.gradle/
+.kotlin/
+.idea/
+build/
+local.properties
+*.iml
+captures/
+*.apk
+*.aab
+
+# --- Python ---
+__pycache__/
+*.pyc
+.venv/
+venv/
+fotos/
+
+# --- Arduino ---
+*.elf
+*.bin
+
+# --- Sistema ---
+.DS_Store
+Thumbs.db
+desktop.ini
